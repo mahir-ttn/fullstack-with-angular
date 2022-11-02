@@ -1,0 +1,7 @@
+main {
+  min-height: calc(100vh - 70px);
+}
+
+.bg-darke {
+  background-color: rgb(47 53 66);
+}
