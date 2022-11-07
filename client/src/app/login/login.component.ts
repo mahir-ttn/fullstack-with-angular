@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { environment } from 'src/environments/environment';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,10 @@ export class LoginComponent implements OnInit {
   });
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -40,6 +44,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    console.log(JSON.stringify(this.form.value, null, 2));
+    const { email, password } = this.form.value;
+    this.authService.login(email, password).subscribe((x) => console.log(x));
   }
 }
