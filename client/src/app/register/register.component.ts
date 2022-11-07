@@ -6,6 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,10 @@ export class RegisterComponent implements OnInit {
   });
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -37,10 +41,27 @@ export class RegisterComponent implements OnInit {
   onClickSignUp() {
     this.submitted = true;
 
-    if (this.form.invalid) {
-      return;
-    }
+    // if (this.form.invalid) {
+    //   return;
+    // }
 
-    console.log(JSON.stringify(this.form.value, null, 2));
+    const { fullname, email, password } = this.form.value;
+    this.authService
+      .register('fullname', 'email', 'password')
+      .subscribe((x) => console.log(x));
   }
+  //   this.authService.register(fullname, email, password).subscribe(
+  //     {
+  //       next: data => {
+  //         console.log(data);
+  //         this.isSuccessful = true;
+  //         this.isSignUpFailed = false;
+  //       },
+  //       error: err => {
+  //         this.errorMessage = err.error.message;
+  //         this.isSignUpFailed = true;
+  //       }
+  //     }
+  //   )
+  // }
 }

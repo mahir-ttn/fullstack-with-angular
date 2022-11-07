@@ -12,10 +12,11 @@ const app = express();
 app.use(express.static(path.join(__dirname, "/client/dist/client")));
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(cors());
 
 // routes
-app.use("/v1", require("./routes/api.route"));
+app.use("/v1", require("./routes"));
 
 // Error Responder
 app.use(errorHandler);
