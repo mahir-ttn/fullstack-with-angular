@@ -1,15 +1,32 @@
 <main class="d-flex text-center text-white bg-darke">
   <div class="container">
-    <form class="form-signin" autocomplete="off">
+    <form
+      class="form-signin"
+      autocomplete="off"
+      (ngSubmit)="onClickLogin()"
+      [formGroup]="form"
+      (ngSubmit)="onClickLogin()"
+    >
       <h1 class="h2 mb-3 fw-normal">Please sign in</h1>
 
       <div class="form-floating mt-5">
-        <input type="email" class="form-control" id="floatingInput" />
-        <label for="floatingInput">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+        />
+        <label>Email address</label>
       </div>
+
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" />
-        <label for="floatingPassword">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+          [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+        />
+        <label>Password</label>
       </div>
 
       <button class="w-100 btn btn-lg btn-warning" type="submit">
