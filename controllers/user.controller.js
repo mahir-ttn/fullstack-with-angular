@@ -9,10 +9,10 @@ module.exports.getAll = async (req, res, next) => {
   }
 };
 
-module.exports.getMyDetails = async (req, res, next) => {
+module.exports.getMe = async (req, res, next) => {
   try {
-    const data = await userService.getAll();
-    res.status(200).send(data);
+    const user = await userService.getMyDetails(req.user_eid);
+    res.send(user);
   } catch (error) {
     next(error);
   }
