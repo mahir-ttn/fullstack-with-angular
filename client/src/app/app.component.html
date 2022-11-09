@@ -15,11 +15,26 @@
           type="button"
           routerLink="login"
           class="btn btn-outline-light me-2"
+          *ngIf="!authService.isLoggedIn()"
         >
           Login
         </button>
-        <button type="button" routerLink="register" class="btn btn-warning">
+        <button
+          type="button"
+          routerLink="register"
+          class="btn btn-warning"
+          *ngIf="!authService.isLoggedIn()"
+        >
           Sign-up
+        </button>
+        <button
+          type="button"
+          routerLink="register"
+          class="btn btn-warning"
+          *ngIf="authService.isLoggedIn()"
+          (click)="authService.logout()"
+        >
+          Logout
         </button>
       </div>
     </div>
