@@ -1,0 +1,33 @@
+main {
+  min-height: calc(100vh - 70px);
+}
+
+.bg-darke {
+  background-color: rgb(47 53 66);
+}
+
+.big-text {
+  font-size: 200px;
+  font-weight: 900;
+  font-family: sans-serif;
+}
+
+.small-text {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.button {
+  color: #fff;
+  padding: 12px 36px;
+  font-weight: 600;
+  border: none;
+  position: relative;
+  border-radius: 90px;
+  background-image: linear-gradient(30deg, #227e9f, #1e50e2);
+  background-size: 200% auto;
+  text-decoration: none;
+  max-width: 250px;
+}
