@@ -29,6 +29,14 @@
         </button>
         <button
           type="button"
+          routerLink="dashboard"
+          class="btn btn-outline-light mx-2"
+          *ngIf="authService.isLoggedIn()"
+        >
+          Dashboard
+        </button>
+        <button
+          type="button"
           routerLink="register"
           class="btn btn-warning"
           *ngIf="authService.isLoggedIn()"
