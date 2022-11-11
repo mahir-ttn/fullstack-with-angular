@@ -1,0 +1,28 @@
+main {
+  min-height: calc(100vh - 70px);
+}
+
+.bg-darke {
+  background-color: rgb(47 53 66);
+}
+
+.cover {
+  background: url("https://images.pexels.com/photos/2835436/pexels-photo-2835436.jpeg");
+  background-position: center 35%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 300px;
+  border-radius: 20px;
+}
+
+.profile_Mpic {
+  margin-top: -85px;
+  background: url("https://images.pexels.com/photos/6636592/pexels-photo-6636592.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 5px solid white;
+  border-radius: 30px;
+  width: 180px;
+  height: 180px;
+}

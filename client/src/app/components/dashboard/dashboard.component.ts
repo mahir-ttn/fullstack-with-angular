@@ -9,12 +9,16 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class DashboardComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
+  mydetail: any;
 
   ngOnInit(): void {
     this.authService.getMe().subscribe({
-      next: (res) => console.log(res),
+      next: (res) => (this.mydetail = res.data),
       error: (err) => {
         if (err.error.code === 401) this.router.navigate(['/login']);
+      },
+      complete: () => {
+        console.log(this.mydetail);
       },
     });
   }
