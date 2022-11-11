@@ -15,10 +15,10 @@ export class DashboardComponent implements OnInit {
     this.authService.getMe().subscribe({
       next: (res) => (this.mydetail = res.data),
       error: (err) => {
-        if (err.error.code === 401) this.router.navigate(['/login']);
-      },
-      complete: () => {
-        console.log(this.mydetail);
+        if (err.status === 401) {
+          this.authService.logout();
+          this.router.navigate(['/login']);
+        }
       },
     });
   }
